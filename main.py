@@ -11,7 +11,7 @@ from umap import UMAP
 # %% 1. Embeddings
 # Read classmates and their responses from a CSV file
 attendees_map = {}
-with open("classmates.csv", newline="", encoding='utf-8') as csvfile:
+with open("classmates.csv", newline="", encoding="utf-8") as csvfile:
     attendees = csv.reader(csvfile, delimiter=",", quotechar='"')
     next(attendees)  # Skip the header row
     for row in attendees:
@@ -30,7 +30,7 @@ person_embeddings = {
 }
 
 # Save embeddings as pickle object.
-with open('person_embeddings.pkl', 'wb') as f:
+with open("person_embeddings.pkl", "wb") as f:
     pickle.dump(person_embeddings, f)
 
 
