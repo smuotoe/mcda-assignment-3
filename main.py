@@ -1,11 +1,12 @@
 import csv
-import seaborn as sns
-from scipy import spatial
-from sklearn.preprocessing import StandardScaler
-from sentence_transformers import SentenceTransformer
-from umap import UMAP
+import pickle
 from collections import defaultdict
+
 import matplotlib.pyplot as plt
+from scipy import spatial
+from sentence_transformers import SentenceTransformer
+from sklearn.preprocessing import StandardScaler
+from umap import UMAP
 
 # %% 1. Embeddings
 # Read classmates and their responses from a CSV file
@@ -27,6 +28,11 @@ person_embeddings = {
     attendees_map[paragraph]: embedding
     for paragraph, embedding in zip(paragraphs, embeddings)
 }
+
+# Save embeddings as pickle object.
+with open('person_embeddings.pkl', 'wb') as f:
+    pickle.dump(person_embeddings, f)
+
 
 # %% 2. Creating Visualization
 # Reducing dimensionality of embedding data, scaling to coordinate domain/range
