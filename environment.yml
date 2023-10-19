@@ -1,0 +1,18 @@
+name: assignment_three
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch
+  - pytorch-cuda=11.8
+  - sentence-transformers
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - scipy
+  - umap-learn
+  - black
+  - pandas
