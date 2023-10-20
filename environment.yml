@@ -16,3 +16,4 @@ dependencies:
   - umap-learn
   - black
   - pandas
+  - pacmap

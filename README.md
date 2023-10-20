@@ -1,6 +1,6 @@
 # Assignment Three (Embedding Icebreaker)
 
-![Sample output of script](visualization.png)  
+![Sample output of script](visualization_tuned_pacmap.png)  
 
 ## What Are Embeddings?
 Insert answer to question 1 here
