@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 
-with open('person_embeddings.pkl', 'rb') as f:
+with open("person_embeddings.pkl", "rb") as f:
     person_embeddings = pickle.load(f)
 
 scaler = StandardScaler()
@@ -43,7 +43,11 @@ def objective(trial):
     similarities = cosine_similarity(scaled_embeddings)
 
     # Compute Euclidean distance between all pairs of students in the reduced space
-    distances = np.sqrt(np.sum((reduced_embeddings[:, None] - reduced_embeddings[None, :]) ** 2, axis=-1))
+    distances = np.sqrt(
+        np.sum(
+            (reduced_embeddings[:, None] - reduced_embeddings[None, :]) ** 2, axis=-1
+        )
+    )
 
     # Rank classmates according to similarities and distances
     similarity_ranks = np.argsort(np.argsort(-similarities))
@@ -85,7 +89,9 @@ plt.show()
 similarities = cosine_similarity(scaled_embeddings)
 
 # Compute Euclidean distance between all pairs of students in the reduced space
-distances = np.sqrt(np.sum((reduced_data[:, None] - reduced_data[None, :]) ** 2, axis=-1))
+distances = np.sqrt(
+    np.sum((reduced_data[:, None] - reduced_data[None, :]) ** 2, axis=-1)
+)
 
 # Rank classmates according to similarities and distances
 similarity_ranks = np.argsort(np.argsort(-similarities))
@@ -94,3 +100,4 @@ distance_ranks = np.argsort(np.argsort(distances))
 # Compute rank correlation between similarity ranks and distance ranks
 rank_correlation, _ = spearmanr(similarity_ranks, distance_ranks)
 avg_rank_correlation = -np.mean(rank_correlation)
+# -0.006169066979837431
